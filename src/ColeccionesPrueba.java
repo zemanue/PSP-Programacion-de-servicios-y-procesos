@@ -1,5 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -31,7 +32,7 @@ public class ColeccionesPrueba {
         copyOnWriteArrayList.addAllAbsent(linkedList);
         System.out.println("CopyOnWriteArrayList:" + copyOnWriteArrayList);
 
-        // CLASES DE TIPO SET: no permiten duplicados 
+        // CLASES DE TIPO SET: no permiten duplicados
         // HASHSET: para búsqueda, inserción y eliminación eficientes sin mantener orden
         HashSet<String> hashSet = new HashSet<String>();
         hashSet.addAll(copyOnWriteArrayList); // Se añade la lista pero no se mantiene el orden
@@ -50,14 +51,15 @@ public class ColeccionesPrueba {
         TreeSet<String> treeSet = new TreeSet<String>();
         treeSet.add("Wendy");
         treeSet.add("Pedro");
-        treeSet.add("Juan"); 
+        treeSet.add("Juan");
         System.out.println("TreeSet:" + treeSet); // El orden natural es mantenido (en este caso, por orden alfabético)
 
         // ENUMSET: optimizado para enumeraciones
 
         // COPYONWRITEARRAYSET: para seguridad en múltiples hilos y pocas modificaciones
 
-        // CLASES DE TIPO QUEUE: colas que procesan elementos en orden FIFO (primero en entrar, primero en salir)
+        // CLASES DE TIPO QUEUE: colas que procesan elementos en orden FIFO (primero en
+        // entrar, primero en salir)
         // LINKEDLIST: también permite operaciones de cola en ambos extremos
         System.out.println("Primer elemento de la cola: " + linkedList.peek());
         linkedList.poll(); // Elimina el primer elemento
@@ -65,19 +67,22 @@ public class ColeccionesPrueba {
         linkedList.push("Lucas"); // Agrega al principio
         System.out.println("Cola: " + linkedList);
 
-        // PRIORITYQUEUE: para ordenar los elementos de forma natural o con un Comparator dado (como el TreeSet)
+        // PRIORITYQUEUE: para ordenar los elementos de forma natural o con un
+        // Comparator dado (como el TreeSet)
         PriorityQueue<String> priorityQueue = new PriorityQueue<String>();
         priorityQueue.add("James");
-        priorityQueue.offer("Andy"); //add() y offer() son equivalentes
+        priorityQueue.offer("Andy"); // add() y offer() son equivalentes
         priorityQueue.offer("Peter");
-        System.out.println("PriorityQueue: " + priorityQueue); // El orden natural es mantenido (en este caso, por orden alfabético)
+        System.out.println("PriorityQueue: " + priorityQueue); // El orden natural es mantenido (en este caso, por orden
+                                                               // alfabético)
 
-        // ARRAYDEQUE: para manejar colas y pilas de elementos más eficientemente que LinkedList
+        // ARRAYDEQUE: para manejar colas y pilas de elementos más eficientemente que
+        // LinkedList
         ArrayDeque<String> arrayDeque = new ArrayDeque<>();
         arrayDeque.offer("Rafael");
         arrayDeque.offer("Donatello");
         arrayDeque.add("Michelangelo");
-        arrayDeque.push("Leonardo");	
+        arrayDeque.push("Leonardo");
         System.out.println("ArrayDeque: " + arrayDeque); // El orden es mantenido
 
     }
