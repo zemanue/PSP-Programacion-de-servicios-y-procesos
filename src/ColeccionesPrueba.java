@@ -85,5 +85,23 @@ public class ColeccionesPrueba {
         arrayDeque.push("Leonardo");
         System.out.println("ArrayDeque: " + arrayDeque); // El orden es mantenido
 
+        // CLASES DE TIPO MAP: almacenan pares de elementos en forma de claves únicas y
+        // valores
+        // HASHMAP: almacena pares clave-valor en una tabla hash, sin orden
+        HashMap<Integer, String> hashMap = new HashMap<>();
+        hashMap.put(1, "Manzana");
+        hashMap.put(2, "Sandía");
+        hashMap.put(3, "Melón");
+        hashMap.put(4, "Naranja");
+        System.out.println("Primer elemento del HashMap: " + hashMap.get(1));
+        hashMap.remove(3);
+        System.out.println("HashMap: " + hashMap);
+
+        // LINKEDHASHMAP: subclase que mantiene el orden de inserción
+
+        // TREEMAP: para mantener un orden natural o con un Comparator dado (como el
+        // TreeSet)
+        
+
     }
 }
