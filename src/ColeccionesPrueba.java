@@ -1,7 +1,9 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.TreeSet;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -55,6 +57,28 @@ public class ColeccionesPrueba {
 
         // COPYONWRITEARRAYSET: para seguridad en múltiples hilos y pocas modificaciones
 
-        
+        // CLASES DE TIPO QUEUE: colas que procesan elementos en orden FIFO (primero en entrar, primero en salir)
+        // LINKEDLIST: también permite operaciones de cola en ambos extremos
+        System.out.println("Primer elemento de la cola: " + linkedList.peek());
+        linkedList.poll(); // Elimina el primer elemento
+        linkedList.offer("Pedro"); // Agrega el elemento al final
+        linkedList.push("Lucas"); // Agrega al principio
+        System.out.println("Cola: " + linkedList);
+
+        // PRIORITYQUEUE: para ordenar los elementos de forma natural o con un Comparator dado (como el TreeSet)
+        PriorityQueue<String> priorityQueue = new PriorityQueue<String>();
+        priorityQueue.add("James");
+        priorityQueue.offer("Andy"); //add() y offer() son equivalentes
+        priorityQueue.offer("Peter");
+        System.out.println("PriorityQueue: " + priorityQueue); // El orden natural es mantenido (en este caso, por orden alfabético)
+
+        // ARRAYDEQUE: para manejar colas y pilas de elementos más eficientemente que LinkedList
+        ArrayDeque<String> arrayDeque = new ArrayDeque<>();
+        arrayDeque.offer("Rafael");
+        arrayDeque.offer("Donatello");
+        arrayDeque.add("Michelangelo");
+        arrayDeque.push("Leonardo");	
+        System.out.println("ArrayDeque: " + arrayDeque); // El orden es mantenido
+
     }
 }
