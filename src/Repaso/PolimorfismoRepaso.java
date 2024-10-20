@@ -9,7 +9,7 @@ Extiende el ejercicio anterior añadiendo una nueva clase Vaca que herede de Ani
 "Muuu". Añade una instancia de Vaca al método main y utiliza el método hablarAlAnimal() para demostrar el polimorfismo.
  */
 
-package RepasoPolimorfismo;
+package Repaso;
 
 public class PolimorfismoRepaso {
     public static void main(String[] args) {

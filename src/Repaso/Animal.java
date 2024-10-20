@@ -1,4 +1,4 @@
-package RepasoPolimorfismo;
+package Repaso;
 
 public class Animal {
 
