@@ -10,11 +10,12 @@
 
 package Repaso;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExcepcionesInvalidInput {
     public static void main(String[] args) {
-        
+
         Scanner sc = new Scanner(System.in);
 
         boolean repetir = true;
@@ -22,14 +23,19 @@ public class ExcepcionesInvalidInput {
             System.out.println("Introduzca su edad: ");
 
             try {
-
                 int edad = sc.nextInt();
-                examinarEdad(edad); // Este método es el que hace saltar la excepción si el número introducido es negativo
+                examinarEdad(edad); // Este método es el que hace saltar la excepción si el número introducido es
+                                    // negativo
                 System.out.println("Edad válida.");
                 repetir = false;
 
-            } catch (InvalidInputException e) {
+            } catch (InvalidInputException e) { // Captura la excepción personalizada y muestra el mensaje de error
                 System.out.println(e.getMessage());
+            } catch (InputMismatchException e) { // Captura la excepción InputMismatchException, que se lanza cuando el
+                                                 // usuario ingresa algo distinto a un número entero
+                System.out.println(
+                        "Error: El valor introducido no es un número entero. Por favor, ingrese una edad válida.");
+                sc.nextLine(); // Previene un bucle infinito
             }
         }
 
@@ -37,10 +43,10 @@ public class ExcepcionesInvalidInput {
     }
 
     public static void examinarEdad(int edad) throws InvalidInputException {
-            
+
         if (edad < 0) {
             throw new InvalidInputException(
-                    "El número introducido no es válido (la edad no puede ser negativa). Por favor, ingrese un valor positivo.");
+                    "Error: El número introducido no es válido (la edad no puede ser negativa). Por favor, ingrese un valor positivo.");
         }
     }
 
