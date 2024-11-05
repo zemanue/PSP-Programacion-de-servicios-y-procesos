@@ -16,8 +16,21 @@ public class BufferedReaderContarPalabras {
         
         System.out.println("Leyendo el número de palabras de texto.txt");
 
-        File archivo = new File("texto.txt");
+        File archivo = new File("src\\Repaso\\texto.txt");
         BufferedReader br = new BufferedReader(new FileReader(archivo));
+
+        int palabras = 0;
+        String linea = br.readLine();
+        while (linea != null) {
+            String[] palabrasDeLinea = linea.split(" ");
+            palabras += palabrasDeLinea.length;
+            for (int i = 0; i < palabrasDeLinea.length; i++) {
+                System.out.println(palabrasDeLinea[i]);
+            }
+            linea = br.readLine();
+        }
+
+        System.out.println("Número de palabras: " + palabras);
 
         br.close();
 
