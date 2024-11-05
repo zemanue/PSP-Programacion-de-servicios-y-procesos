@@ -23,10 +23,15 @@ public class BufferedReaderContarPalabras {
         String linea = br.readLine();
         while (linea != null) {
             String[] palabrasDeLinea = linea.split(" ");
-            palabras += palabrasDeLinea.length;
-            for (int i = 0; i < palabrasDeLinea.length; i++) {
-                System.out.println(palabrasDeLinea[i]);
+
+            // Filtramos y contamos solo las palabras no vacías
+            for (String palabra : palabrasDeLinea) {
+                if (!palabra.trim().isEmpty()) {
+                    palabras++;
+                    System.out.println(palabras + ": " +palabra);
+                }
             }
+
             linea = br.readLine();
         }
 
