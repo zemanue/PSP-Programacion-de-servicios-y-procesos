@@ -1,1 +1,4 @@
-Nombre de usuario: Pedro. Email: porsucasa@gmail.com
+Usuario 1: Vicente. Email: vincentvangogh@gmail.com
+Usuario 2: Perico. Email: pericopuertas@gmail.com
+Usuario 3: Maria. Email: mariamagdalena@gmail.com
+Usuario 4: VikingScarlet. Email: vikingscarlett@gmail.com

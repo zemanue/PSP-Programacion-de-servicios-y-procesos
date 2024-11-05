@@ -5,13 +5,15 @@
 
 package Repaso;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ScannerPrintWriterUsuarioEmail {
-    public static void main(String[] args) throws IOException{
-        
+    public static void main(String[] args) throws IOException {
+
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -22,18 +24,31 @@ public class ScannerPrintWriterUsuarioEmail {
             System.out.println("Email: ");
             String correo = sc.nextLine();
             System.out.println();
-            
+
             try {
-                PrintWriter pw = new PrintWriter("src\\Repaso\\usuarios.txt");
-                pw.println("Nombre de usuario: " + nombre + ". Email: " + correo);
-                pw.flush();
+                File archivo = new File("src\\Repaso\\usuarios.txt");
+                // Contamos las líneas del archivo
+                Scanner fileScanner = new Scanner(archivo);
+                int lineas = 1;
+                while (fileScanner.hasNextLine()) {
+                    lineas++;
+                    fileScanner.nextLine();
+                }
+                fileScanner.close();
+
+                // Se debe abrir el archivo en modo append (agregar) con FileWriter(true) para
+                // no sobrescribir el contenido
+                PrintWriter pw = new PrintWriter(new FileWriter(archivo, true));
+                pw.println("Usuario " + lineas + ": " + nombre + ". Email: " + correo);
                 System.out.println("Datos guardados");
+
                 pw.close();
             } catch (IOException e) {
                 System.out.println("Error al guardar los datos");
-            } 
+            }
 
-            System.out.println("¿Desea continuar? Escribe 'n' o 'no' si quiere salir, cualquier otro texto para continuar");
+            System.out.println(
+                    "¿Desea continuar? Escribe 'n' o 'no' si quiere salir, cualquier otro texto para continuar");
             String respuesta = sc.nextLine();
             if (respuesta.equalsIgnoreCase("n") || respuesta.equalsIgnoreCase("no")) {
                 break;
