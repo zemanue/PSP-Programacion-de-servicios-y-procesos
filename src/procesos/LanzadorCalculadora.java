@@ -24,7 +24,7 @@ public class LanzadorCalculadora {
     }
 
     public static void main(String[] args) {
-        // Lanzar una operación con un solo proceso
+        // LANZAR UNA OPERACIÓN CON UN PROCESO
         LanzadorCalculadora lanzador = new LanzadorCalculadora();
         String nombreArchivo = System.getProperty("user.dir") + "/src/procesos/operacion_1.txt";
         double n1, n2;
@@ -39,5 +39,28 @@ public class LanzadorCalculadora {
             System.err.println("Error al leer el archivo: " + e.getMessage());
         }
 
+        // LANZAR VARIAS OPERACIONES CON VARIOS PROCESOS
+        final int NUM_PROCESOS = 4;
+        Process p;
+
+        // Repetir el proceso para cada archivo de operación
+        for (int i = 0; i < NUM_PROCESOS; i++) {
+            // Obtenemos el nombre del archivo de operación correspondiente
+            nombreArchivo = System.getProperty("user.dir") + "/src/procesos/operacion_" + (i + 1) + ".txt";
+            // Leemos el archivo línea por línea
+            try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+                // Convertimos los números a Double
+                n1 = Double.parseDouble(reader.readLine());
+                n2 = Double.parseDouble(reader.readLine());
+                operacion = reader.readLine();
+                System.out.println("Lanzando operación " + (i + 1) + "...");
+                // Lanzamos el proceso con los números y la operación leídos
+                p = lanzador.LanzarOperacion(n1, n2, operacion);
+                // Esperamos a que el proceso termine
+                p.waitFor();
+            } catch (Exception e) {
+                System.err.println("Error al leer el archivo: " + e.getMessage());
+            }
+        }
     }
 }
