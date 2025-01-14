@@ -1,4 +1,4 @@
-package procesos;
+package procesos01;
 
 public class Calculadora {
     public static String calcula(double n1, double n2, String operacion) {

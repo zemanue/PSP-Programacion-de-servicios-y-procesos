@@ -1,4 +1,4 @@
-package procesos;
+package procesos01;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,7 +13,7 @@ public class LanzadorCalculadora {
             // Crear un nuevo proceso que ejecute la clase Calculadora con los argumentos
             // que necesita (n1, n2 y operacion)
             pb = new ProcessBuilder("java", rutaClaseCalculadora, n1.toString(), n2.toString(), operacion);
-            // Redirigir la entrada y salida estándar del proceso
+            // Redirigir la entrada y salida estándar del proceso (la terminal en este caso)
             pb.inheritIO();
             // Iniciar el proceso
             return pb.start();
