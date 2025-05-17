@@ -1,4 +1,4 @@
-package multiprocesos.procesos01;
+package multiprocesos;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,4 +1,4 @@
-package multiprocesos.procesos01;
+package multiprocesos;
 
 public class Calculadora {
     public static String calcula(double n1, double n2, String operacion) {

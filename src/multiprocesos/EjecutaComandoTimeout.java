@@ -1,5 +1,5 @@
 
-package multiprocesos.procesos01;
+package multiprocesos;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
