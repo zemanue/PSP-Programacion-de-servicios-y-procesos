@@ -2,24 +2,30 @@ package servicios_en_red;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 public class MsgServerNom {
+    // ArrayList para almacenar los clientes conectados
     public static ArrayList<ClientHandler> clientes = new ArrayList<ClientHandler>();
+    // Set para almacenar los nombres de usuario (y evitar duplicados)
     private static Set<String> usernames = new HashSet<>();
 
     public static void main(String[] args) {
+        // Se intenta conectar al servidor en el puerto 8080
         try (ServerSocket serverSocket = new ServerSocket(8080)) {
             String serverIP = InetAddress.getLocalHost().getHostAddress();
             System.out.println("Servidor iniciado en " + serverIP + " puerto 8080...");
 
+            // Se espera la conexión de los clientes
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("Cliente conectado desde: " + clientSocket.getInetAddress().getHostAddress());
@@ -33,6 +39,7 @@ public class MsgServerNom {
             e.printStackTrace();
         }
     }
+
 
     public static synchronized boolean addUsername(String username) {
         return usernames.add(username);

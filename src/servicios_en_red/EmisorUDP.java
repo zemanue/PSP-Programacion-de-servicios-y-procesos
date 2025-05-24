@@ -30,6 +30,8 @@ public class EmisorUDP {
         System.err.println("Socket: " + e.getMessage());
       } catch (IOException e) {
         System.err.println("E/S: " + e.getMessage());
+      } catch (Exception e) {
+        System.err.println("Error: " + e.getMessage());
       }
     }
   }
