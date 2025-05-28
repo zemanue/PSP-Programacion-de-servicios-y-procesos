@@ -27,7 +27,8 @@ class CuentaBancaria {
         double saldoAnterior = this.getSaldo();
         this.saldo += cantidad;
         System.out.printf("Cliente %d depositó: %.2f%s \n", idCliente, cantidad, this.getMoneda());
-        System.out.printf("Saldo anterior: %.2f%s. Saldo actual: %.2f%s\n", saldoAnterior, this.getMoneda(), this.getSaldo(), this.getMoneda());
+        System.out.printf("Saldo anterior: %.2f%s. Saldo actual: %.2f%s\n", saldoAnterior, this.getMoneda(),
+                this.getSaldo(), this.getMoneda());
     }
 
     public synchronized void retirar(int idCliente, double cantidad) {
@@ -36,9 +37,11 @@ class CuentaBancaria {
         if (saldo >= cantidad) {
             this.saldo -= cantidad;
             System.out.printf("Cliente %d retiró: %.2f%s\n", idCliente, cantidad, this.getMoneda());
-            System.out.printf("Saldo anterior: %.2f%s. Saldo actual: %.2f%s\n", saldoAnterior, this.getMoneda(), this.getSaldo(), this.getMoneda());
+            System.out.printf("Saldo anterior: %.2f%s. Saldo actual: %.2f%s\n", saldoAnterior, this.getMoneda(),
+                    this.getSaldo(), this.getMoneda());
         } else {
-            System.out.printf("Cliente %d no pudo retirar %.2f%s. Saldo insuficiente.\n", idCliente, cantidad, this.getMoneda());
+            System.out.printf("Cliente %d no pudo retirar %.2f%s. Saldo insuficiente.\n", idCliente, cantidad,
+                    this.getMoneda());
         }
     }
 }
@@ -72,7 +75,8 @@ class Cliente implements Runnable {
 public class Banco {
     public static void main(String[] args) {
         CuentaBancaria cuenta = new CuentaBancaria(500, "BBVA");
-        System.out.printf("Cuenta bancaria %s creada con saldo inicial de %.2f%s\n", cuenta.getNombreBanco(), cuenta.getSaldo(), cuenta.getMoneda());
+        System.out.printf("Cuenta bancaria %s creada con saldo inicial de %.2f%s\n", cuenta.getNombreBanco(),
+                cuenta.getSaldo(), cuenta.getMoneda());
 
         Thread[] clientes = new Thread[5];
         System.out.printf("%d clientes van a realizar transacciones\n", clientes.length);
